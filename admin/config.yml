@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: daud27614/thecyberdefender-blog
+  branch: main
+  base_url: https://thecyberdefender.live
+  auth_endpoint: auth
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "blog"
+    label: "Articles"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["Network Defense", "Cloud Security", "Threat Intelligence", "Incident Response", "Tutorials"] }
+      - { label: "Author", name: "author", widget: "string", default: "The Cyber Defender Team" }
+      - { label: "Summary", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
