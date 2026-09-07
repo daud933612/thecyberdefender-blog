@@ -1,0 +1,132 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Write For Us | ${SITE_TITLE}`} description="Submit guest articles, sponsored content, and cybersecurity research to The Cyber Defender." />
+		<style>
+			body {
+				background-color: #0b0f19;
+				color: #e2e8f0;
+				font-family: system-ui, -apple-system, sans-serif;
+				margin: 0;
+			}
+			main {
+				max-width: 860px;
+				margin: 3.5rem auto 5rem;
+				padding: 0 1.5rem;
+				line-height: 1.7;
+			}
+			.badge {
+				display: inline-block;
+				padding: 0.3rem 0.8rem;
+				background: rgba(56, 189, 248, 0.1);
+				border: 1px solid rgba(56, 189, 248, 0.3);
+				color: #38bdf8;
+				border-radius: 9999px;
+				font-size: 0.8rem;
+				font-weight: 600;
+				letter-spacing: 0.5px;
+				margin-bottom: 1.25rem;
+			}
+			h1 {
+				font-size: 2.75rem;
+				font-weight: 800;
+				line-height: 1.2;
+				color: #ffffff;
+				margin-bottom: 1rem;
+			}
+			.lead {
+				font-size: 1.2rem;
+				color: #94a3b8;
+				margin-bottom: 2.5rem;
+			}
+			.card {
+				background: #111827;
+				border: 1px solid #1e293b;
+				border-radius: 12px;
+				padding: 2rem;
+				margin: 2rem 0;
+			}
+			h2 {
+				color: #38bdf8;
+				font-size: 1.5rem;
+				margin-top: 0;
+			}
+			ul {
+				padding-left: 1.25rem;
+				margin: 1rem 0;
+				color: #cbd5e1;
+			}
+			li { margin-bottom: 0.5rem; }
+			.cta-box {
+				text-align: center;
+				background: linear-gradient(180deg, #111827 0%, #0d1526 100%);
+				border: 1px solid #0284c7;
+				border-radius: 12px;
+				padding: 2.5rem;
+				margin-top: 3rem;
+			}
+			.contact-btn {
+				display: inline-block;
+				margin-top: 1.5rem;
+				background: #0284c7;
+				color: #ffffff;
+				padding: 0.85rem 2rem;
+				font-weight: 700;
+				text-decoration: none;
+				border-radius: 8px;
+				transition: background 0.2s, transform 0.15s;
+			}
+			.contact-btn:hover {
+				background: #0369a1;
+				transform: translateY(-2px);
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<span class="badge">EDITORIAL GUIDELINES</span>
+			<h1>Write For Us: Cybersecurity & Tech Contributions</h1>
+			<p class="lead">
+				Showcase your research, analysis, and cybersecurity solutions to our global technical audience.
+			</p>
+
+			<div class="card">
+				<h2>Topics We Accept</h2>
+				<ul>
+					<li>Defensive Security Operations (SecOps, SIEM, EDR configuration)</li>
+					<li>Threat Hunting, Malware Analysis & Reverse Engineering</li>
+					<li>Network Architecture, Zero Trust, and Cloud Infrastructure</li>
+					<li>Vulnerability Research and Incident Response Walkthroughs</li>
+					<li>Enterprise Security Tool Reviews and Comparisons</li>
+				</ul>
+			</div>
+
+			<div class="card">
+				<h2>Submission Guidelines</h2>
+				<ul>
+					<li><strong>Original Content:</strong> Articles must be 100% original and unpublished elsewhere.</li>
+					<li><strong>Length:</strong> 1,200 to 2,500 words with actionable technical insights.</li>
+					<li><strong>Formatting:</strong> Use clear Markdown formatting with relevant code blocks and screenshots.</li>
+					<li><strong>Backlinks:</strong> Do-follow contextual backlinks must link to relevant, authoritative resources.</li>
+				</ul>
+			</div>
+
+			<div class="cta-box">
+				<h2>Pitch an Article or Sponsored Post</h2>
+				<p style="color: #94a3b8; max-width: 550px; margin: 0 auto;">
+					Reach out directly with your topic pitches, writer credentials, or commercial collaboration inquiries.
+				</p>
+				<a href="mailto:contact@thecyberdefender.live" class="contact-btn">Submit Your Pitch</a>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

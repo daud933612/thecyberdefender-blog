@@ -1,0 +1,93 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+			main {
+				max-width: 820px;
+				margin: 3rem auto 6rem;
+				padding: 0 1.5rem;
+			}
+			.article-header {
+				margin-bottom: 2.5rem;
+				border-bottom: 1px solid var(--border);
+				padding-bottom: 1.5rem;
+			}
+			h1 {
+				font-size: 2.75rem;
+				color: #ffffff;
+				line-height: 1.2;
+				margin-bottom: 1rem;
+			}
+			.date {
+				color: #64748b;
+				font-size: 0.9rem;
+			}
+			.hero-img {
+				width: 100%;
+				border-radius: 12px;
+				margin-bottom: 2rem;
+				border: 1px solid var(--border);
+			}
+			.prose {
+				color: #cbd5e1;
+				line-height: 1.8;
+				font-size: 1.1rem;
+			}
+			.prose h2, .prose h3 {
+				color: #ffffff;
+				margin-top: 2rem;
+			}
+			.prose a {
+				color: var(--accent);
+				text-decoration: underline;
+			}
+			.prose code {
+				background: #111827;
+				padding: 0.2rem 0.4rem;
+				border-radius: 4px;
+				color: var(--accent);
+				font-size: 0.95em;
+			}
+			.prose pre {
+				background: #0f172a;
+				border: 1px solid var(--border);
+				padding: 1.25rem;
+				border-radius: 8px;
+				overflow-x: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="article-header">
+					<div class="date">
+						{pubDate.toLocaleDateString('en-us', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})}
+					</div>
+					<h1>{title}</h1>
+				</div>
+				{heroImage && <img class="hero-img" src={heroImage} alt={title} />}
+				<div class="prose">
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

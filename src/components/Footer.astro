@@ -1,0 +1,35 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<div class="footer-content">
+		<p class="copyright">&copy; {today.getFullYear()} The Cyber Defender. All rights reserved.</p>
+		<p class="tagline">Threat Intelligence & Defensive Security Engineering.</p>
+	</div>
+</footer>
+<style>
+	footer {
+		padding: 3rem 1rem 4rem;
+		background: #06090e;
+		text-align: center;
+		border-top: 1px solid #131b2e;
+		font-size: 0.9rem;
+	}
+	.footer-content {
+		max-width: 800px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+	.copyright {
+		color: #64748b;
+		margin: 0;
+	}
+	.tagline {
+		font-size: 0.8rem;
+		color: #475569;
+		margin: 0;
+	}
+</style>

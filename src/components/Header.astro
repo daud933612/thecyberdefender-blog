@@ -1,0 +1,61 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<header>
+	<nav>
+		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/blog">Articles</HeaderLink>
+			<HeaderLink href="/write-for-us">Write For Us</HeaderLink>
+			<HeaderLink href="/admin/">CMS Login</HeaderLink>
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		padding: 1.25rem 2rem;
+		background: #080c14;
+		border-bottom: 1px solid #1a2234;
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		backdrop-filter: blur(8px);
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.25rem;
+		font-weight: 800;
+		letter-spacing: -0.5px;
+	}
+	h2 a,
+	h2 a.active {
+		color: #00e5ff;
+		text-decoration: none;
+		text-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+	nav a {
+		padding: 0.5em 0.8em;
+		color: #94a3b8;
+		border-bottom: 2px solid transparent;
+		text-decoration: none;
+		font-size: 0.95rem;
+		font-weight: 500;
+		transition: color 0.2s, border-color 0.2s;
+	}
+	nav a:hover,
+	nav a.active {
+		color: #38bdf8;
+		border-bottom-color: #38bdf8;
+	}
+</style>
