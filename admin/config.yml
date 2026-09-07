@@ -1,8 +1,8 @@
-backend:
+ backend:
   name: github
-  repo: daud27614/thecyberdefender-blog
+  repo: daud933612/thecyberdefender-blog
   branch: main
-  base_url: https://thecyberdefender.live
+  base_url: https://thecyberdefender-oauth.daud27614.workers.dev
   auth_endpoint: auth
 
 media_folder: "assets/uploads"
