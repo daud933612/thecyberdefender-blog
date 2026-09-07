@@ -1,4 +1,4 @@
- backend:
+backend:
   name: github
   repo: daud933612/thecyberdefender-blog
   branch: main
@@ -10,14 +10,14 @@ public_folder: "/assets/uploads"
 
 collections:
   - name: "blog"
-    label: "Articles"
+    label: "Blog Posts"
     folder: "posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Category", name: "category", widget: "select", options: ["Network Defense", "Cloud Security", "Threat Intelligence", "Incident Response", "Tutorials"] }
-      - { label: "Author", name: "author", widget: "string", default: "The Cyber Defender Team" }
-      - { label: "Summary", name: "description", widget: "text" }
+      - { label: "Author", name: "author", widget: "string", default: "Farraz Khan" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Description", name: "description", widget: "text" }
       - { label: "Body", name: "body", widget: "markdown" }
