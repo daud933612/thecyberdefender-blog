@@ -6,13 +6,4 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://thecyberdefender.live',
   integrations: [mdx(), sitemap()],
-  experimental: {
-    fonts: [
-      {
-        name: 'Atkinson Hyperlegible',
-        cssVariable: '--font-atkinson',
-        provider: 'google',
-      },
-    ],
-  },
 });
