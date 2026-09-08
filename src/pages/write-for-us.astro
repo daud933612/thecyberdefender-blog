@@ -2,131 +2,154 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Write For Us | ${SITE_TITLE}`} description="Submit guest articles, sponsored content, and cybersecurity research to The Cyber Defender." />
-		<style>
-			body {
-				background-color: #0b0f19;
-				color: #e2e8f0;
-				font-family: system-ui, -apple-system, sans-serif;
-				margin: 0;
-			}
-			main {
-				max-width: 860px;
-				margin: 3.5rem auto 5rem;
-				padding: 0 1.5rem;
-				line-height: 1.7;
-			}
-			.badge {
-				display: inline-block;
-				padding: 0.3rem 0.8rem;
-				background: rgba(56, 189, 248, 0.1);
-				border: 1px solid rgba(56, 189, 248, 0.3);
-				color: #38bdf8;
-				border-radius: 9999px;
-				font-size: 0.8rem;
-				font-weight: 600;
-				letter-spacing: 0.5px;
-				margin-bottom: 1.25rem;
-			}
-			h1 {
-				font-size: 2.75rem;
-				font-weight: 800;
-				line-height: 1.2;
-				color: #ffffff;
-				margin-bottom: 1rem;
-			}
-			.lead {
-				font-size: 1.2rem;
-				color: #94a3b8;
-				margin-bottom: 2.5rem;
-			}
-			.card {
-				background: #111827;
-				border: 1px solid #1e293b;
-				border-radius: 12px;
-				padding: 2rem;
-				margin: 2rem 0;
-			}
-			h2 {
-				color: #38bdf8;
-				font-size: 1.5rem;
-				margin-top: 0;
-			}
-			ul {
-				padding-left: 1.25rem;
-				margin: 1rem 0;
-				color: #cbd5e1;
-			}
-			li { margin-bottom: 0.5rem; }
-			.cta-box {
-				text-align: center;
-				background: linear-gradient(180deg, #111827 0%, #0d1526 100%);
-				border: 1px solid #0284c7;
-				border-radius: 12px;
-				padding: 2.5rem;
-				margin-top: 3rem;
-			}
-			.contact-btn {
-				display: inline-block;
-				margin-top: 1.5rem;
-				background: #0284c7;
-				color: #ffffff;
-				padding: 0.85rem 2rem;
-				font-weight: 700;
-				text-decoration: none;
-				border-radius: 8px;
-				transition: background 0.2s, transform 0.15s;
-			}
-			.contact-btn:hover {
-				background: #0369a1;
-				transform: translateY(-2px);
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<span class="badge">EDITORIAL GUIDELINES</span>
-			<h1>Write For Us: Cybersecurity & Tech Contributions</h1>
-			<p class="lead">
-				Showcase your research, analysis, and cybersecurity solutions to our global technical audience.
-			</p>
+<html lang="en" class="dark">
+  <head>
+    <BaseHead 
+      title="Write For Us | The Cyber Defender" 
+      description="Contribute cybersecurity research, technical analysis, and security insights to The Cyber Defender." 
+    />
+  </head>
+  <body class="bg-[#0b0f19] text-gray-200 min-h-screen flex flex-col font-sans selection:bg-emerald-500/30 selection:text-emerald-400">
+    <Header />
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+      
+      <!-- Page Header -->
+      <div class="text-center mb-16">
+        <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 rounded-full mb-4">
+          Contributor Program
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
+          Write For <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">The Cyber Defender</span>
+        </h1>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          Share your deep-dive research, practical incident breakdowns, and threat defense tutorials with our audience of security engineers and analysts.
+        </p>
+      </div>
 
-			<div class="card">
-				<h2>Topics We Accept</h2>
-				<ul>
-					<li>Defensive Security Operations (SecOps, SIEM, EDR configuration)</li>
-					<li>Threat Hunting, Malware Analysis & Reverse Engineering</li>
-					<li>Network Architecture, Zero Trust, and Cloud Infrastructure</li>
-					<li>Vulnerability Research and Incident Response Walkthroughs</li>
-					<li>Enterprise Security Tool Reviews and Comparisons</li>
-				</ul>
-			</div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+        
+        <!-- Editorial Guidelines Column -->
+        <div class="md:col-span-5 space-y-6">
+          <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 backdrop-blur-sm">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span class="text-emerald-400">#</span> Topics We Cover
+            </h2>
+            <ul class="space-y-2.5 text-sm text-gray-400">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Threat Hunting & SOC Workflows
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Cloud Security (AWS, GCP, Azure)
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Vulnerability Research & Exploits
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Zero Trust & Identity Security
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Incident Response & Forensics
+              </li>
+            </ul>
+          </div>
 
-			<div class="card">
-				<h2>Submission Guidelines</h2>
-				<ul>
-					<li><strong>Original Content:</strong> Articles must be 100% original and unpublished elsewhere.</li>
-					<li><strong>Length:</strong> 1,200 to 2,500 words with actionable technical insights.</li>
-					<li><strong>Formatting:</strong> Use clear Markdown formatting with relevant code blocks and screenshots.</li>
-					<li><strong>Backlinks:</strong> Do-follow contextual backlinks must link to relevant, authoritative resources.</li>
-				</ul>
-			</div>
+          <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 backdrop-blur-sm">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span class="text-emerald-400">#</span> Publishing Standards
+            </h2>
+            <ul class="space-y-2.5 text-sm text-gray-400">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5"></span> 100% original, practical technical content (1,200+ words).
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5"></span> Verified code snippets, configurations, or lab steps.
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5"></span> Author bio and clean backlink to your portfolio.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-			<div class="cta-box">
-				<h2>Pitch an Article or Sponsored Post</h2>
-				<p style="color: #94a3b8; max-width: 550px; margin: 0 auto;">
-					Reach out directly with your topic pitches, writer credentials, or commercial collaboration inquiries.
-				</p>
-				<a href="mailto:contact@thecyberdefender.live" class="contact-btn">Submit Your Pitch</a>
-			</div>
-		</main>
-		<Footer />
-	</body>
+        <!-- Live Working Web3Forms Column -->
+        <div class="md:col-span-7">
+          <div class="p-8 rounded-2xl bg-zinc-900/80 border border-zinc-800 shadow-xl backdrop-blur-md">
+            <h2 class="text-2xl font-bold text-white mb-2">Submit Your Pitch</h2>
+            <p class="text-sm text-gray-400 mb-6">Fill out the details below. Pitches are typically reviewed within 24–48 hours.</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+              <!-- Web3Forms Access Key -->
+              <input type="hidden" name="access_key" value="f7f84cc6-3e76-40a7-a507-092f026e66b7" />
+              
+              <!-- Anti-Spam Botcheck -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+              
+              <!-- Custom Email Subject -->
+              <input type="hidden" name="subject" value="New Contributor Pitch - The Cyber Defender" />
+
+              <div>
+                <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Your Full Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  required 
+                  placeholder="Alex Rivers"
+                  class="w-full px-4 py-3 rounded-lg bg-black/50 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition text-sm"
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Email Address</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required 
+                  placeholder="alex@example.com"
+                  class="w-full px-4 py-3 rounded-lg bg-black/50 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition text-sm"
+                />
+              </div>
+
+              <div>
+                <label for="topic" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Working Title / Proposed Topic</label>
+                <input 
+                  type="text" 
+                  id="topic" 
+                  name="topic" 
+                  required 
+                  placeholder="Building Detection Engineering Pipelines with Sigma Rules"
+                  class="w-full px-4 py-3 rounded-lg bg-black/50 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition text-sm"
+                />
+              </div>
+
+              <div>
+                <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Article Outline & Published Portfolio Samples</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="4" 
+                  required 
+                  placeholder="Provide a brief outline of the sections, target audience skill level, and links to your previous technical writing."
+                  class="w-full px-4 py-3 rounded-lg bg-black/50 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition text-sm resize-none"
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                class="w-full py-3.5 px-6 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm tracking-wide shadow-lg shadow-emerald-950 transition duration-200 cursor-pointer"
+              >
+                Send Guest Pitch
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+    <Footer />
+  </body>
 </html>
