@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ExternalLink } from 'lucide-astro';
+
+const toolFilters = [
+  "All Tools",
+  "Password Security",
+  "Network Security",
+  "Web Security",
+  "Encryption",
+  "OSINT",
+  "Malware Analysis",
+  "Forensics"
+];
+
+const toolsList = [
+  {
+    name: "Nmap",
+    description: "Network scanning & reconnaissance tool used for port auditing.",
+    link: "https://nmap.org",
+    badge: "CLI"
+  },
+  {
+    name: "Wireshark",
+    description: "Network protocol analyzer for deep inspection of live traffic.",
+    link: "https://www.wireshark.org",
+    badge: "GUI"
+  },
+  {
+    name: "Metasploit",
+    description: "Penetration testing framework used by security auditors.",
+    link: "https://www.metasploit.com",
+    badge: "Framework"
+  },
+  {
+    name: "Burp Suite",
+    description: "Market-leading web application security scanner toolkit.",
+    link: "https://portswigger.net/burp",
+    badge: "Web"
+  },
+  {
+    name: "Hashcat",
+    description: "Advanced password recovery and hash cracking utility.",
+    link: "https://hashcat.net",
+    badge: "Cracking"
+  },
+  {
+    name: "VirusTotal",
+    description: "Inspect suspicious files, domains, and IPs to detect malware.",
+    link: "https://www.virustotal.com",
+    badge: "Cloud"
+  }
+];
+---
+
+<Layout title="Cybersecurity Tools | Handpicked Security Software">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="mb-8">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Cybersecurity Tools</h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+        Handpicked tools to help you scan, protect, and stay secure.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+      <aside class="bg-[#0B1528] border border-cyan-500/20 rounded-2xl p-4 sticky top-24">
+        <h2 class="text-xs font-mono font-bold tracking-wider text-cyan-400 uppercase mb-3 px-2">
+          Categories
+        </h2>
+        <nav class="space-y-1">
+          {toolFilters.map((tool, idx) => (
+            <button 
+              class={`w-full text-left px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                idx === 0 
+                  ? 'bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-semibold' 
+                  : 'text-slate-300 hover:bg-slate-800/60 hover:text-white'
+              }`}
+            >
+              {tool}
+            </button>
+          ))}
+        </nav>
+      </aside>
+
+      <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {toolsList.map((t) => (
+          <div class="rounded-2xl bg-[#0B1528] border border-cyan-500/20 hover:border-cyan-400/60 p-5 shadow-lg flex flex-col justify-between transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.12)]">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
+                  {t.name.slice(0, 2).toUpperCase()}
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">
+                  {t.badge}
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-white">{t.name}</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                {t.description}
+              </p>
+            </div>
+
+            <div class="mt-5 pt-3 border-t border-slate-800">
+              <a 
+                href={t.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+              >
+                <span>View Tool</span>
+                <ExternalLink class="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

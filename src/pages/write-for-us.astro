@@ -1,269 +1,80 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE } from '../consts';
+import Layout from '../layouts/Layout.astro';
+import { CheckCircle2, ArrowRight, FileCheck } from 'lucide-astro';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead 
-			title={`Write For Us | ${SITE_TITLE}`} 
-			description="Contribute in-depth threat intelligence, reverse engineering, and defensive security research to The Cyber Defender." 
-		/>
-	</head>
-	<body>
-		<Header />
-		
-		<main class="page-wrapper">
-			<!-- Header Banner -->
-			<header class="hero-section">
-				<span class="badge">Contributor Program</span>
-				<h1>Write For The Cyber Defender</h1>
-				<p class="subtitle">
-					Share technical research, incident breakdowns, and defensive tutorials with our global community of security engineers.
-				</p>
-			</header>
+<Layout title="Write for Us | Contribute to TheCyberDefender">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full">
+          Write for Us
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          Contribute to TheCyberDefender
+        </h1>
+        <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+          Are you passionate about cybersecurity? Share your knowledge, experience, or insights with our growing community. We welcome guest posts from writers, experts, and enthusiasts.
+        </p>
 
-			<div class="content-grid">
-				<!-- Left Column: Editorial Guidelines -->
-				<section class="guidelines-card">
-					<h2>Topics We Cover</h2>
-					<ul class="topic-list">
-						<li>Threat Hunting & Detection Engineering (Sigma, YARA, Splunk)</li>
-						<li>Cloud Security & Posture Hardening (AWS, GCP, Azure)</li>
-						<li>Reverse Engineering, Malware Analysis & Vulnerability Research</li>
-						<li>Zero Trust Architecture, IAM & Network Segmentation</li>
-						<li>Blue Team Playbooks, DFIR & Incident Response</li>
-					</ul>
+        <h2 class="text-sm font-mono font-bold text-white uppercase tracking-wider mt-8 mb-4">
+          Why Write for Us?
+        </h2>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2.5 text-xs text-slate-300">
+            <CheckCircle2 class="w-4 h-4 text-cyan-400 shrink-0" />
+            <span>Reach a global cybersecurity audience</span>
+          </li>
+          <li class="flex items-center gap-2.5 text-xs text-slate-300">
+            <CheckCircle2 class="w-4 h-4 text-cyan-400 shrink-0" />
+            <span>Build your personal brand and authority</span>
+          </li>
+          <li class="flex items-center gap-2.5 text-xs text-slate-300">
+            <CheckCircle2 class="w-4 h-4 text-cyan-400 shrink-0" />
+            <span>Get a do-follow backlink to your website or profile</span>
+          </li>
+          <li class="flex items-center gap-2.5 text-xs text-slate-300">
+            <CheckCircle2 class="w-4 h-4 text-cyan-400 shrink-0" />
+            <span>Be part of a trusted security knowledge network</span>
+          </li>
+        </ul>
+      </div>
 
-					<h2>Submission Criteria</h2>
-					<ul class="criteria-list">
-						<li><strong>100% Original Content:</strong> Technical depth with a minimum of 1,200 words.</li>
-						<li><strong>Reproducible Labs:</strong> Include working configurations, code snippets, or architecture diagrams.</li>
-						<li><strong>Author Credit:</strong> Complete author bio with a clean, permanent link to your portfolio or GitHub profile.</li>
-					</ul>
-				</section>
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#0B1528] border border-cyan-500/30 shadow-[0_0_30px_rgba(0,229,255,0.08)]">
+        <div class="flex items-center gap-2 mb-4">
+          <FileCheck class="w-5 h-5 text-cyan-400" />
+          <h2 class="text-base font-bold text-white">Submission Guidelines</h2>
+        </div>
 
-				<!-- Right Column: Submission Form -->
-				<section class="form-card">
-					<h2>Submit Your Pitch</h2>
-					<p class="form-desc">Pitches are reviewed by security editors within 24–48 hours.</p>
+        <ul class="space-y-3 text-xs text-slate-300">
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 font-bold">&bull;</span>
+            <span><strong>Original Content:</strong> Well-researched, technical, and unpublished elsewhere.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 font-bold">&bull;</span>
+            <span><strong>Length:</strong> Minimum 800 words with proper formatting and headings.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 font-bold">&bull;</span>
+            <span><strong>Plagiarism:</strong> Zero tolerance policy (100% unique human-written content).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 font-bold">&bull;</span>
+            <span><strong>Visuals:</strong> Use relevant diagrams, CLI snippets, or screenshots if any.</span>
+          </li>
+        </ul>
 
-					<form action="https://api.web3forms.com/submit" method="POST" class="pitch-form">
-						<!-- Web3Forms Access Key -->
-						<input type="hidden" name="access_key" value="f7f84cc6-3e76-40a7-a507-092f026e66b7" />
-						<input type="hidden" name="subject" value="New Contributor Pitch - The Cyber Defender" />
-						<input type="hidden" name="from_name" value="The Cyber Defender Guest Form" />
-						<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
-
-						<div class="field-group">
-							<label for="name">Full Name</label>
-							<input type="text" id="name" name="name" placeholder="e.g. Alex Rivers" required />
-						</div>
-
-						<div class="field-group">
-							<label for="email">Work / Contact Email</label>
-							<input type="email" id="email" name="email" placeholder="alex@domain.com" required />
-						</div>
-
-						<div class="field-group">
-							<label for="topic">Proposed Article Title</label>
-							<input type="text" id="topic" name="topic" placeholder="e.g. Building Detection Pipelines for Kerberoasting" required />
-						</div>
-
-						<div class="field-group">
-							<label for="outline">Article Outline & Published Samples</label>
-							<textarea id="outline" name="outline" rows="5" placeholder="Include a brief breakdown of sections, target audience skill level, and 1-2 links to your prior work." required></textarea>
-						</div>
-
-						<button type="submit" class="submit-btn">Send Guest Pitch</button>
-					</form>
-				</section>
-			</div>
-		</main>
-
-		<Footer />
-	</body>
-</html>
-
-<style>
-	body {
-		background-color: #06090e;
-		color: #e2e8f0;
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.page-wrapper {
-		max-width: 1120px;
-		margin: 0 auto;
-		padding: 4rem 1.5rem 6rem;
-		flex: 1;
-		width: 100%;
-	}
-
-	.hero-section {
-		text-align: center;
-		margin-bottom: 3.5rem;
-	}
-
-	.badge {
-		display: inline-block;
-		font-size: 0.75rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: #38bdf8;
-		background: rgba(56, 189, 248, 0.1);
-		border: 1px solid rgba(56, 189, 248, 0.25);
-		padding: 0.35rem 0.85rem;
-		border-radius: 9999px;
-		margin-bottom: 1.25rem;
-	}
-
-	.hero-section h1 {
-		font-size: clamp(2rem, 4vw, 2.75rem);
-		font-weight: 800;
-		letter-spacing: -0.02em;
-		color: #f8fafc;
-		margin: 0 0 1rem;
-	}
-
-	.subtitle {
-		font-size: 1.1rem;
-		color: #94a3b8;
-		max-width: 650px;
-		margin: 0 auto;
-		line-height: 1.6;
-	}
-
-	.content-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2.5rem;
-		align-items: start;
-	}
-
-	@media (max-width: 860px) {
-		.content-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	.guidelines-card, .form-card {
-		background: #0d131f;
-		border: 1px solid #1e293b;
-		border-radius: 12px;
-		padding: 2.25rem;
-		box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
-	}
-
-	.guidelines-card h2, .form-card h2 {
-		font-size: 1.35rem;
-		font-weight: 700;
-		color: #f1f5f9;
-		margin: 0 0 1rem;
-		border-bottom: 1px solid #1e293b;
-		padding-bottom: 0.75rem;
-	}
-
-	.guidelines-card h2:not(:first-child) {
-		margin-top: 2rem;
-	}
-
-	.form-desc {
-		font-size: 0.9rem;
-		color: #94a3b8;
-		margin-bottom: 1.5rem;
-	}
-
-	ul {
-		padding-left: 1.25rem;
-		margin: 0;
-	}
-
-	li {
-		color: #94a3b8;
-		margin-bottom: 0.75rem;
-		line-height: 1.55;
-		font-size: 0.95rem;
-	}
-
-	li strong {
-		color: #cbd5e1;
-	}
-
-	.pitch-form {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-	}
-
-	.field-group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.4rem;
-	}
-
-	label {
-		font-size: 0.85rem;
-		font-weight: 600;
-		color: #cbd5e1;
-	}
-
-	input[type="text"],
-	input[type="email"],
-	textarea {
-		width: 100%;
-		background: #06090e;
-		border: 1px solid #1e293b;
-		border-radius: 8px;
-		padding: 0.75rem 1rem;
-		font-size: 0.95rem;
-		color: #f8fafc;
-		outline: none;
-		font-family: inherit;
-		transition: border-color 0.15s ease, box-shadow 0.15s ease;
-	}
-
-	input[type="text"]:focus,
-	input[type="email"]:focus,
-	textarea:focus {
-		border-color: #38bdf8;
-		box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
-	}
-
-	input::placeholder,
-	textarea::placeholder {
-		color: #475569;
-	}
-
-	textarea {
-		resize: vertical;
-		min-height: 120px;
-	}
-
-	.submit-btn {
-		background: #0284c7;
-		color: #ffffff;
-		border: none;
-		border-radius: 8px;
-		padding: 0.85rem 1.5rem;
-		font-size: 0.95rem;
-		font-weight: 600;
-		cursor: pointer;
-		transition: background-color 0.15s ease, transform 0.05s ease;
-		margin-top: 0.5rem;
-	}
-
-	.submit-btn:hover {
-		background: #0369a1;
-	}
-
-	.submit-btn:active {
-		transform: scale(0.99);
-	}
-</style>
+        <div class="mt-8 pt-6 border-t border-slate-800">
+          <a 
+            href="mailto:hello@thecyberdefender.com?subject=Guest%20Post%20Submission" 
+            class="w-full py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-white text-xs font-bold shadow-lg shadow-sky-500/25 transition-all flex items-center justify-center gap-2"
+          >
+            <span>Submit Your Article</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

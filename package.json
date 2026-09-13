@@ -17,6 +17,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "@bruits/satteri-win32-x64-msvc": "^0.10.5",
     "astro": "^7.3.1",
+    "lucide-astro": "^0.556.0",
     "sharp": "^0.35.0"
   },
   "allowScripts": {

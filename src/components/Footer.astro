@@ -1,35 +1,72 @@
 ---
-const today = new Date();
+import { Shield, Home, FileText, Wrench, BookOpen, User, Mail, PenTool, ArrowRight } from 'lucide-astro';
 ---
 
-<footer>
-	<div class="footer-content">
-		<p class="copyright">&copy; {today.getFullYear()} The Cyber Defender. All rights reserved.</p>
-		<p class="tagline">Threat Intelligence & Defensive Security Engineering.</p>
-	</div>
+<footer class="mt-20 border-t border-cyan-500/15 bg-[#03070D]">
+  <!-- Floating Callout Banner -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -translate-y-8">
+    <div class="p-5 rounded-2xl bg-[#0C1527] border border-cyan-500/30 shadow-[0_0_30px_rgba(0,229,255,0.1)] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="text-xl">🚀</span>
+        <span class="text-sm font-semibold text-slate-200">Ready to build a safer digital world?</span>
+      </div>
+      <a href="/articles" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 text-white text-xs font-bold transition-all shadow-md shadow-sky-500/25">
+        <span>Explore Now</span>
+        <ArrowRight class="w-3.5 h-3.5" />
+      </a>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12">
+    <!-- Brand Centerpiece -->
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2.5 p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 mb-3">
+        <Shield class="w-6 h-6" />
+        <span class="font-bold text-slate-100 text-lg">TheCyberDefender</span>
+      </div>
+      <p class="text-[11px] font-mono tracking-widest text-cyan-400 uppercase">
+        Inform &bull; Educate &bull; Protect
+      </p>
+      <p class="text-xs text-slate-400 mt-2 max-w-md mx-auto">
+        Your complete cybersecurity platform. Everything you need in one place.
+      </p>
+    </div>
+
+    <!-- Quick Icon Navigation Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 max-w-4xl mx-auto">
+      <a href="/" class="flex flex-col items-center p-3 rounded-xl bg-[#081120] border border-cyan-500/10 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all text-center">
+        <Home class="w-4 h-4 mb-1.5 text-cyan-400" />
+        <span class="text-xs font-medium">Home</span>
+      </a>
+      <a href="/articles" class="flex flex-col items-center p-3 rounded-xl bg-[#081120] border border-cyan-500/10 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all text-center">
+        <FileText class="w-4 h-4 mb-1.5 text-cyan-400" />
+        <span class="text-xs font-medium">Articles</span>
+      </a>
+      <a href="/tools" class="flex flex-col items-center p-3 rounded-xl bg-[#081120] border border-cyan-500/10 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all text-center">
+        <Wrench class="w-4 h-4 mb-1.5 text-cyan-400" />
+        <span class="text-xs font-medium">Tools</span>
+      </a>
+      <a href="/guides" class="flex flex-col items-center p-3 rounded-xl bg-[#081120] border border-cyan-500/10 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all text-center">
+        <BookOpen class="w-4 h-4 mb-1.5 text-cyan-400" />
+        <span class="text-xs font-medium">Guides</span>
+      </a>
+      <a href="/about" class="flex flex-col items-center p-3 rounded-xl bg-[#081120] border border-cyan-500/10 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all text-center">
+        <User class="w-4 h-4 mb-1.5 text-cyan-400" />
+        <span class="text-xs font-medium">About</span>
+      </a>
+      <a href="/contact" class="flex flex-col items-center p-3 rounded-xl bg-[#081120] border border-cyan-500/10 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all text-center">
+        <Mail class="w-4 h-4 mb-1.5 text-cyan-400" />
+        <span class="text-xs font-medium">Contact</span>
+      </a>
+      <a href="/write-for-us" class="flex flex-col items-center p-3 rounded-xl bg-[#081120] border border-cyan-500/10 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all text-center">
+        <PenTool class="w-4 h-4 mb-1.5 text-cyan-400" />
+        <span class="text-xs font-medium">Write for Us</span>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-10 pt-6 border-t border-slate-900 text-slate-500 text-[11px] font-mono">
+      &copy; {new Date().getFullYear()} TheCyberDefender.live &bull; All Rights Reserved.
+    </div>
+  </div>
 </footer>
-<style>
-	footer {
-		padding: 3rem 1rem 4rem;
-		background: #06090e;
-		text-align: center;
-		border-top: 1px solid #131b2e;
-		font-size: 0.9rem;
-	}
-	.footer-content {
-		max-width: 800px;
-		margin: 0 auto;
-		display: flex;
-		flex-direction: column;
-		gap: 0.4rem;
-	}
-	.copyright {
-		color: #64748b;
-		margin: 0;
-	}
-	.tagline {
-		font-size: 0.8rem;
-		color: #475569;
-		margin: 0;
-	}
-</style>

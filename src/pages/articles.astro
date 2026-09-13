@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Shield, Calendar, Clock } from 'lucide-astro';
+
+const categories = [
+  "All Articles",
+  "Cybersecurity Basics",
+  "Threats & Attacks",
+  "Tools & Software",
+  "Guides",
+  "Networking",
+  "Programming",
+  "Digital Privacy"
+];
+
+const articles = [
+  {
+    title: "What is Cybersecurity? A Complete Beginner's Guide",
+    slug: "/articles/what-is-cybersecurity-complete-beginners-guide/",
+    date: "Sep 8, 2025",
+    readTime: "5 min read",
+    tag: "Cybersecurity Basics"
+  },
+  {
+    title: "Top 10 Cybersecurity Tools You Should Know in 2025",
+    slug: "/articles/top-10-cybersecurity-tools-you-should-know-in-2025/",
+    date: "Sep 7, 2025",
+    readTime: "7 min read",
+    tag: "Tools & Software"
+  },
+  {
+    title: "How to Prevent Phishing Attacks (Real Examples + Tips)",
+    slug: "/articles/how-to-prevent-phishing-attacks-real-examples-tips/",
+    date: "Sep 6, 2025",
+    readTime: "6 min read",
+    tag: "Threats & Attacks"
+  },
+  {
+    title: "Best Password Manager Tools for 2025",
+    slug: "/articles/best-password-manager-tools-for-2025/",
+    date: "Sep 4, 2025",
+    readTime: "5 min read",
+    tag: "Tools & Software"
+  },
+  {
+    title: "How to Stay Safe on Public Wi-Fi",
+    slug: "/articles/how-to-stay-safe-on-public-wi-fi/",
+    date: "Sep 3, 2025",
+    readTime: "6 min read",
+    tag: "Networking"
+  },
+  {
+    title: "What is a VPN? And Why You Need It",
+    slug: "/articles/what-is-a-vpn-and-why-you-need-it/",
+    date: "Sep 2, 2025",
+    readTime: "7 min read",
+    tag: "Digital Privacy"
+  }
+];
+---
+
+<Layout title="All Articles | Cybersecurity News & Guides">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="mb-8">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white">All Articles</h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+        Explore the latest cybersecurity news, tutorials, and expert insights.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+      <aside class="bg-[#0B1528] border border-cyan-500/20 rounded-2xl p-4 sticky top-24">
+        <h2 class="text-xs font-mono font-bold tracking-wider text-cyan-400 uppercase mb-3 px-2">
+          Categories
+        </h2>
+        <nav class="space-y-1">
+          {categories.map((cat, idx) => (
+            <button 
+              class={`w-full text-left px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                idx === 0 
+                  ? 'bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-semibold' 
+                  : 'text-slate-300 hover:bg-slate-800/60 hover:text-white'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </nav>
+      </aside>
+
+      <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {articles.map((post) => (
+          <a href={post.slug} class="group rounded-2xl bg-[#0B1528] border border-cyan-500/20 hover:border-cyan-400/60 p-4 shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.12)] flex flex-col justify-between">
+            <div>
+              <div class="relative h-32 rounded-xl bg-[#060D1A] border border-cyan-500/20 overflow-hidden flex items-center justify-center mb-3">
+                <Shield class="w-10 h-10 text-cyan-500/40 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-300" />
+                <span class="absolute top-2 left-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                  {post.tag}
+                </span>
+              </div>
+              <h3 class="text-xs sm:text-sm font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug">
+                {post.title}
+              </h3>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[10px] font-mono text-slate-400">
+              <span class="flex items-center gap-1">
+                <Calendar class="w-3 h-3 text-cyan-400" />
+                {post.date}
+              </span>
+              <span class="flex items-center gap-1">
+                <Clock class="w-3 h-3 text-cyan-400" />
+                {post.readTime}
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

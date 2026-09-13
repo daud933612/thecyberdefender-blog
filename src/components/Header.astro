@@ -1,61 +1,56 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import { Shield, Search } from 'lucide-astro';
+
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Articles', href: '/articles' },
+  { name: 'Tools', href: '/tools' },
+  { name: 'Guides', href: '/guides' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
+  { name: 'Write for Us', href: '/write-for-us' },
+];
 ---
 
-<header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Articles</HeaderLink>
-			<HeaderLink href="/write-for-us">Write For Us</HeaderLink>
-			<HeaderLink href="/admin/">CMS Login</HeaderLink>
-		</div>
-	</nav>
+<header class="sticky top-0 z-50 bg-[#050B14]/90 backdrop-blur-md border-b border-cyan-500/15">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] transition-all">
+        <Shield class="w-5 h-5" />
+      </div>
+      <div>
+        <span class="font-bold text-slate-100 tracking-wide block leading-none text-base">TheCyberDefender</span>
+        <span class="text-[9px] font-mono text-cyan-400 tracking-widest uppercase">Learn | Explore | Stay Secure</span>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-slate-300">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class={`transition-colors hover:text-cyan-400 ${
+            currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) 
+              ? 'text-cyan-400 font-semibold border-b border-cyan-400 pb-0.5' 
+              : 'text-slate-300'
+          }`}
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-3">
+      <a href="/articles" class="p-2 text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Search articles">
+        <Search class="w-4 h-4" />
+      </a>
+      <a href="/subscribe" class="px-4 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-white text-xs font-semibold shadow-md shadow-sky-500/20 transition-all">
+        Subscribe
+      </a>
+    </div>
+  </div>
 </header>
-<style>
-	header {
-		margin: 0;
-		padding: 1.25rem 2rem;
-		background: #080c14;
-		border-bottom: 1px solid #1a2234;
-		position: sticky;
-		top: 0;
-		z-index: 50;
-		backdrop-filter: blur(8px);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		font-weight: 800;
-		letter-spacing: -0.5px;
-	}
-	h2 a,
-	h2 a.active {
-		color: #00e5ff;
-		text-decoration: none;
-		text-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		max-width: 1100px;
-		margin: 0 auto;
-	}
-	nav a {
-		padding: 0.5em 0.8em;
-		color: #94a3b8;
-		border-bottom: 2px solid transparent;
-		text-decoration: none;
-		font-size: 0.95rem;
-		font-weight: 500;
-		transition: color 0.2s, border-color 0.2s;
-	}
-	nav a:hover,
-	nav a.active {
-		color: #38bdf8;
-		border-bottom-color: #38bdf8;
-	}
-</style>
