@@ -1,60 +1,183 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { BookOpen, Compass, ShieldCheck, Globe } from 'lucide-astro';
+import { BookOpen, Compass, ShieldCheck } from 'lucide-astro';
+
+const pillars = [
+  {
+    title: "Learn",
+    description: "Step-by-step tutorials and in-depth guides.",
+    icon: BookOpen,
+  },
+  {
+    title: "Explore",
+    description: "Latest tools, trends and real-world insights.",
+    icon: Compass,
+  },
+  {
+    title: "Stay Secure",
+    description: "Practical tips to protect your digital life.",
+    icon: ShieldCheck,
+  }
+];
 ---
 
-<Layout title="About Us | Who We Are">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full">
-          About Us
+<Layout title="Who We Are | TheCyberDefender">
+  <div class="max-w-[1400px] mx-auto px-6 py-12 lg:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Content Column -->
+      <div class="lg:col-span-6 z-10">
+        <span class="inline-block text-[11px] font-mono tracking-widest text-[#00E5FF] font-bold uppercase mb-4 px-2.5 py-1 rounded bg-cyan-500/10 border border-cyan-500/30">
+          ABOUT US
         </span>
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+
+        <h1 class="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight">
           Who We Are
         </h1>
-        <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+
+        <p class="mt-6 text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
           TheCyberDefender is a modern cybersecurity platform built for learners, professionals, and enthusiasts. Our mission is to make cybersecurity knowledge accessible, practical, and easy to understand for everyone.
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-          <div class="p-4 rounded-xl bg-[#0B1528] border border-cyan-500/20 text-center">
-            <div class="w-8 h-8 mx-auto rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-2">
-              <BookOpen class="w-4 h-4" />
-            </div>
-            <h3 class="text-xs font-bold text-white">Learn</h3>
-            <p class="text-[11px] text-slate-400 mt-1 leading-snug">Step-by-step tutorials and in-depth guides.</p>
-          </div>
-
-          <div class="p-4 rounded-xl bg-[#0B1528] border border-cyan-500/20 text-center">
-            <div class="w-8 h-8 mx-auto rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-2">
-              <Compass class="w-4 h-4" />
-            </div>
-            <h3 class="text-xs font-bold text-white">Explore</h3>
-            <p class="text-[11px] text-slate-400 mt-1 leading-snug">Latest tools, trends, and real-world insights.</p>
-          </div>
-
-          <div class="p-4 rounded-xl bg-[#0B1528] border border-cyan-500/20 text-center">
-            <div class="w-8 h-8 mx-auto rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-2">
-              <ShieldCheck class="w-4 h-4" />
-            </div>
-            <h3 class="text-xs font-bold text-white">Stay Secure</h3>
-            <p class="text-[11px] text-slate-400 mt-1 leading-snug">Practical tips to protect your digital life.</p>
-          </div>
+        <!-- 3 Feature Pillars -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12">
+          {pillars.map((item) => {
+            const IconComp = item.icon;
+            return (
+              <div class="p-5 rounded-2xl bg-[#060E1D] border border-cyan-500/20 hover:border-cyan-400/60 transition-all duration-300 shadow-[0_0_20px_rgba(0,229,255,0.06)] flex flex-col justify-between">
+                <div>
+                  <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center mb-4 text-[#00E5FF]">
+                    <IconComp class="w-5 h-5 stroke-[2]" />
+                  </div>
+                  <h2 class="text-sm font-bold text-white mb-1.5">{item.title}</h2>
+                  <p class="text-[12px] text-slate-400 leading-relaxed">{item.description}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      <div class="relative flex items-center justify-center">
-        <div class="relative w-72 h-72 sm:w-88 sm:h-88 flex items-center justify-center">
-          <div class="absolute inset-0 rounded-full bg-sky-500/15 blur-3xl"></div>
-          <div class="absolute inset-6 rounded-full border border-cyan-500/30 animate-pulse"></div>
-          
-          <div class="relative p-10 rounded-full bg-[#081224]/90 border-2 border-cyan-400/70 shadow-[0_0_40px_rgba(0,229,255,0.25)] flex flex-col items-center justify-center">
-            <Globe class="w-24 h-24 text-cyan-400" />
-            <ShieldCheck class="w-8 h-8 text-sky-400 -mt-4 drop-shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
-          </div>
+      <!-- Right Column: Digital Earth Hologram & Neon Shield -->
+      <div class="lg:col-span-6 relative flex items-center justify-center min-h-[460px] overflow-visible">
+        
+        <!-- Outer Radial Halo -->
+        <div class="absolute w-[440px] h-[440px] rounded-full bg-cyan-500/15 blur-[100px] pointer-events-none"></div>
+
+        <!-- High-Tech Cyber Globe Mesh SVG -->
+        <svg class="w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] relative z-0" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="globeSphere" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#071E3D" stop-opacity="0.9" />
+              <stop offset="65%" stop-color="#051329" stop-opacity="0.95" />
+              <stop offset="100%" stop-color="#020712" stop-opacity="1" />
+            </radialGradient>
+
+            <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+
+            <filter id="shieldShine" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="8" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Globe Sphere Base -->
+          <circle cx="250" cy="250" r="175" fill="url(#globeSphere)" stroke="#00E5FF" stroke-width="1.2" stroke-opacity="0.4" />
+
+          <!-- Continent Silhouette Path Overlays -->
+          <g fill="#00E5FF" fill-opacity="0.18" stroke="#00E5FF" stroke-width="0.75" stroke-opacity="0.5">
+            <!-- Americas Silhouette -->
+            <path d="M165 140 C175 145 190 170 185 195 C180 215 160 220 155 235 C150 250 160 270 170 290 C175 305 165 330 150 340 C135 320 130 280 140 240 C145 210 135 180 145 155 Z" />
+            <!-- Eurasia/Africa Silhouette Outline -->
+            <path d="M290 130 C310 125 340 145 365 165 C380 185 390 220 375 250 C360 275 330 280 320 310 C310 330 290 350 280 360 C270 330 275 290 285 260 C295 230 280 190 285 160 Z" />
+          </g>
+
+          <!-- Latitude & Longitude Coordinate Grid -->
+          <ellipse cx="250" cy="250" rx="175" ry="60" stroke="#00E5FF" stroke-width="0.8" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+          <ellipse cx="250" cy="250" rx="175" ry="120" stroke="#00E5FF" stroke-width="0.8" stroke-opacity="0.35" stroke-dasharray="4 4"/>
+          <ellipse cx="250" cy="250" rx="75" ry="175" stroke="#00E5FF" stroke-width="0.8" stroke-opacity="0.35"/>
+          <ellipse cx="250" cy="250" rx="130" ry="175" stroke="#00E5FF" stroke-width="0.8" stroke-opacity="0.35"/>
+          <line x1="75" y1="250" x2="425" y2="250" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.4"/>
+          <line x1="250" y1="75" x2="250" y2="425" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.4"/>
+
+          <!-- Constellation Data Mesh Lines and Synapses -->
+          <g stroke="#00E5FF" stroke-width="1" stroke-opacity="0.5">
+            <line x1="120" y1="180" x2="165" y2="140" />
+            <line x1="165" y1="140" x2="230" y2="120" />
+            <line x1="230" y1="120" x2="310" y2="135" />
+            <line x1="310" y1="135" x2="370" y2="175" />
+            <line x1="370" y1="175" x2="400" y2="240" />
+            <line x1="400" y1="240" x2="365" y2="310" />
+            <line x1="365" y1="310" x2="295" y2="360" />
+            <line x1="295" y1="360" x2="210" y2="370" />
+            <line x1="210" y1="370" x2="145" y2="315" />
+            <line x1="145" y1="315" x2="110" y2="240" />
+            <line x1="110" y1="240" x2="120" y2="180" />
+            <line x1="165" y1="140" x2="200" y2="210" />
+            <line x1="310" y1="135" x2="295" y2="210" />
+            <line x1="370" y1="175" x2="320" y2="260" />
+            <line x1="145" y1="315" x2="200" y2="280" />
+          </g>
+
+          <!-- Glowing Constellation Dots -->
+          <g fill="#00E5FF" filter="url(#neonGlow)">
+            <circle cx="120" cy="180" r="3.5" />
+            <circle cx="165" cy="140" r="4" />
+            <circle cx="230" cy="120" r="3" />
+            <circle cx="310" cy="135" r="4.5" />
+            <circle cx="370" cy="175" r="4" />
+            <circle cx="400" cy="240" r="3.5" />
+            <circle cx="365" cy="310" r="4" />
+            <circle cx="295" cy="360" r="3.5" />
+            <circle cx="210" cy="370" r="4" />
+            <line x1="145" y1="315" x2="145" y2="315" />
+            <circle cx="145" cy="315" r="3.5" />
+            <circle cx="110" cy="240" r="4" />
+          </g>
+
+          <!-- Orbital Outer Cyan Rings -->
+          <ellipse cx="250" cy="250" rx="210" ry="190" stroke="#00E5FF" stroke-width="1.2" stroke-opacity="0.25" stroke-dasharray="8 6"/>
+          <ellipse cx="250" cy="250" rx="230" ry="215" stroke="#00E5FF" stroke-width="0.8" stroke-opacity="0.15"/>
+        </svg>
+
+        <!-- Floating High-Tech Shield Badge Centered on Globe -->
+        <div class="absolute z-10 flex items-center justify-center pointer-events-none">
+          <svg class="w-36 h-44 sm:w-44 sm:h-52 drop-shadow-[0_0_35px_rgba(0,229,255,0.9)]" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer Shield -->
+            <path d="M80 6 L146 32 V95 C146 142 118 174 80 190 C42 174 14 142 14 95 V32 L80 6 Z" 
+                  fill="#030A17" 
+                  stroke="#00E5FF" 
+                  stroke-width="3.5"
+                  stroke-linejoin="round"/>
+            
+            <!-- Inner Glowing Shield Rim -->
+            <path d="M80 18 L134 40 V93 C134 131 110 159 80 172 C50 159 26 131 26 93 V40 L80 18 Z" 
+                  stroke="#00E5FF" 
+                  stroke-width="1.5" 
+                  stroke-opacity="0.6"/>
+
+            <!-- Center Glowing Cyber Cross / Keyhole Core -->
+            <path d="M80 60 V125 M60 82 H100" 
+                  stroke="#00E5FF" 
+                  stroke-width="6" 
+                  stroke-linecap="round"
+                  filter="url(#shieldShine)"/>
+            
+            <circle cx="80" cy="72" r="9" fill="#00E5FF" filter="url(#shieldShine)" />
+          </svg>
         </div>
+
       </div>
+
     </div>
   </div>
 </Layout>
