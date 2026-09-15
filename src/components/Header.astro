@@ -1,5 +1,5 @@
 ---
-import { Shield, Search, PenSquare } from 'lucide-astro';
+import { Shield, Search } from 'lucide-astro';
 
 // Normalize current path (remove trailing slash for consistent matching)
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -52,17 +52,8 @@ const navLinks = [
       })}
     </nav>
 
-    <!-- Actions Cluster -->
+    <!-- Actions Cluster (Only Search & Subscribe) -->
     <div class="flex items-center gap-3 shrink-0">
-      <a 
-        href="/admin" 
-        title="Open Studio Editor"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 hover:border-cyan-400 text-cyan-400 text-xs font-mono font-semibold transition-all hover:bg-cyan-500/20"
-      >
-        <PenSquare class="w-3.5 h-3.5 text-cyan-400" />
-        <span class="hidden lg:inline text-[11px]">+ Write</span>
-      </a>
-
       <!-- Quick Command Search Bar Pill Trigger (Opens Modal on click or Ctrl+K) -->
       <button 
         type="button"
