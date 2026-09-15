@@ -3,91 +3,88 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import AuthorCard from '../components/AuthorCard.astro';
+import Newsletter from '../components/Newsletter.astro';
+import '../styles/global.css';
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				max-width: 820px;
-				margin: 3rem auto 6rem;
-				padding: 0 1.5rem;
-			}
-			.article-header {
-				margin-bottom: 2.5rem;
-				border-bottom: 1px solid var(--border);
-				padding-bottom: 1.5rem;
-			}
-			h1 {
-				font-size: 2.75rem;
-				color: #ffffff;
-				line-height: 1.2;
-				margin-bottom: 1rem;
-			}
-			.date {
-				color: #64748b;
-				font-size: 0.9rem;
-			}
-			.hero-img {
-				width: 100%;
-				border-radius: 12px;
-				margin-bottom: 2rem;
-				border: 1px solid var(--border);
-			}
-			.prose {
-				color: #cbd5e1;
-				line-height: 1.8;
-				font-size: 1.1rem;
-			}
-			.prose h2, .prose h3 {
-				color: #ffffff;
-				margin-top: 2rem;
-			}
-			.prose a {
-				color: var(--accent);
-				text-decoration: underline;
-			}
-			.prose code {
-				background: #111827;
-				padding: 0.2rem 0.4rem;
-				border-radius: 4px;
-				color: var(--accent);
-				font-size: 0.95em;
-			}
-			.prose pre {
-				background: #0f172a;
-				border: 1px solid var(--border);
-				padding: 1.25rem;
-				border-radius: 8px;
-				overflow-x: auto;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="article-header">
-					<div class="date">
-						{pubDate.toLocaleDateString('en-us', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})}
-					</div>
-					<h1>{title}</h1>
-				</div>
-				{heroImage && <img class="hero-img" src={heroImage} alt={title} />}
-				<div class="prose">
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="bg-[#030712] text-slate-200 font-sans min-h-screen flex flex-col selection:bg-cyan-500 selection:text-slate-950 relative">
+    
+    <!-- Top Reading Progress Bar Attached to Viewport Top -->
+    <div class="fixed top-0 left-0 w-full h-[3px] bg-transparent z-[100] pointer-events-none">
+      <div id="reading-progress" class="h-full bg-gradient-to-r from-sky-400 via-[#00E5FF] to-cyan-300 shadow-[0_0_12px_#00E5FF] w-0 transition-all duration-75 ease-out"></div>
+    </div>
+
+    <Header />
+    <main class="flex-1 max-w-4xl mx-auto px-6 py-12 w-full">
+      <article>
+        <div class="mb-8 pb-6 border-b border-cyan-500/15">
+          <div class="text-xs font-mono text-cyan-400 mb-2">
+            {pubDate.toLocaleDateString('en-us', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">{title}</h1>
+        </div>
+
+        {heroImage && (
+          <img class="w-full rounded-2xl border border-cyan-500/30 mb-8 shadow-[0_0_30px_rgba(0,229,255,0.1)]" src={heroImage} alt={title} />
+        )}
+
+        <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed [&_h2]:text-white [&_h2]:text-xl [&_h2]:font-bold [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:text-white [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_a]:text-[#00E5FF] [&_a]:underline hover:[&_a]:text-cyan-300 [&_code]:bg-[#081120] [&_code]:text-[#00E5FF] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:border [&_code]:border-cyan-500/20 [&_pre]:bg-[#050C18] [&_pre]:border [&_pre]:border-cyan-500/30 [&_pre]:rounded-xl [&_pre]:p-4 [&_pre]:overflow-x-auto [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2">
+          <slot />
+        </div>
+
+        <!-- Newsletter form inside post -->
+        <Newsletter />
+
+        <!-- Author bio badge -->
+        <AuthorCard />
+      </article>
+    </main>
+    <Footer />
+
+    <!-- Scroll Progress Calculation Script -->
+    <script>
+      const updateProgressBar = () => {
+        const progressBar = document.getElementById('reading-progress');
+        if (!progressBar) return;
+
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (totalHeight <= 0) {
+          progressBar.style.width = '0%';
+          return;
+        }
+
+        const progress = (window.scrollY / totalHeight) * 100;
+        progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+      };
+
+      window.addEventListener('scroll', updateProgressBar, { passive: true });
+      window.addEventListener('resize', updateProgressBar);
+      updateProgressBar();
+    </script>
+  </body>
 </html>
+
+<style is:global>
+  body {
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
+      linear-gradient(rgba(0, 229, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-position: 0 0, 0 0, 0 0;
+  }
+</style>

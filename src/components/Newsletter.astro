@@ -1,0 +1,53 @@
+---
+import { Mail, ArrowRight, ShieldCheck } from 'lucide-astro';
+---
+
+<section class="my-12">
+  <div class="relative overflow-hidden rounded-2xl bg-[#060E1D] border border-cyan-500/30 p-8 sm:p-10 shadow-[0_0_35px_rgba(0,229,255,0.08)]">
+    <!-- Subtle Background Glow Elements -->
+    <div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute -left-16 -bottom-16 w-56 h-56 rounded-full bg-blue-600/10 blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-2xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-400 text-[11px] font-mono tracking-widest uppercase mb-4">
+        <Mail class="w-3.5 h-3.5" />
+        <span>THREAT BRIEFING DISPATCH</span>
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        Stay Ahead of Modern <span class="text-[#00E5FF] drop-shadow-[0_0_15px_rgba(0,229,255,0.5)]">Cyber Threats</span>
+      </h2>
+
+      <p class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-lg mx-auto">
+        Zero spam. Receive curated breakdown summaries on newly identified zero-days, defensive engineering blueprints, and security tool write-ups.
+      </p>
+
+      <form class="mt-8 flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Subscribed successfully to TheCyberDefender briefing!');">
+        <div class="relative w-full">
+          <input 
+            type="email" 
+            required 
+            placeholder="operator@domain.com" 
+            class="w-full px-4 py-3 rounded-xl bg-[#030712] border border-cyan-500/30 text-slate-100 text-xs font-mono placeholder:text-slate-600 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all"
+          />
+        </div>
+        <button 
+          type="submit" 
+          class="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#00D2EE] hover:bg-cyan-300 text-slate-950 font-bold text-xs shadow-[0_0_20px_rgba(0,210,238,0.4)] transition-all"
+        >
+          <span>Join Dispatch</span>
+          <ArrowRight class="w-3.5 h-3.5 stroke-[2.5]" />
+        </button>
+      </form>
+
+      <div class="mt-4 flex items-center justify-center gap-4 text-[10px] font-mono text-slate-500">
+        <span class="flex items-center gap-1">
+          <ShieldCheck class="w-3 h-3 text-cyan-400" />
+          End-to-End Privacy Guaranteed
+        </span>
+        <span>&bull;</span>
+        <span>Unsubscribe Anytime</span>
+      </div>
+    </div>
+  </div>
+</section>

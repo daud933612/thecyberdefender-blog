@@ -1,5 +1,5 @@
 ---
-import { Shield, Search } from 'lucide-astro';
+import { Shield, Search, PenSquare } from 'lucide-astro';
 
 // Normalize current path (remove trailing slash for consistent matching)
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -9,16 +9,14 @@ const navLinks = [
   { name: 'Articles', href: '/articles' },
   { name: 'Tools', href: '/tools' },
   { name: 'Guides', href: '/guides' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
   { name: 'Write for Us', href: '/write-for-us' },
 ];
 ---
 
 <header class="w-full bg-[#030712]/95 backdrop-blur-md border-b border-cyan-500/10 sticky top-0 z-50">
-  <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+  <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between gap-6">
     <!-- Brand Logo -->
-    <a href="/" class="flex items-center gap-3">
+    <a href="/" class="flex items-center gap-3 shrink-0">
       <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-400/40 flex items-center justify-center shadow-[0_0_15px_rgba(0,229,255,0.3)]">
         <Shield class="w-5 h-5 text-cyan-400 fill-cyan-400/20" />
       </div>
@@ -29,7 +27,7 @@ const navLinks = [
     </a>
 
     <!-- Nav Items with Dynamic Active Detection -->
-    <nav class="hidden lg:flex items-center gap-8 text-[13px] font-medium">
+    <nav class="hidden md:flex items-center gap-7 text-[13px] font-medium">
       {navLinks.map((item) => {
         const itemPath = item.href.replace(/\/$/, '') || '/';
         const isActive = itemPath === '/' 
@@ -39,7 +37,7 @@ const navLinks = [
         return (
           <a 
             href={item.href} 
-            class={`relative py-1 transition-colors ${
+            class={`relative py-1 transition-colors whitespace-nowrap ${
               isActive 
                 ? 'text-[#00E5FF] font-semibold' 
                 : 'text-slate-300 hover:text-[#00E5FF]'
@@ -54,14 +52,34 @@ const navLinks = [
       })}
     </nav>
 
-    <!-- Actions -->
-    <div class="flex items-center gap-5">
-      <a href="/articles" aria-label="Search" class="text-slate-400 hover:text-cyan-400 transition-colors">
-        <Search class="w-4 h-4" />
+    <!-- Actions Cluster -->
+    <div class="flex items-center gap-3 shrink-0">
+      <a 
+        href="/admin" 
+        title="Open Studio Editor"
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 hover:border-cyan-400 text-cyan-400 text-xs font-mono font-semibold transition-all hover:bg-cyan-500/20"
+      >
+        <PenSquare class="w-3.5 h-3.5 text-cyan-400" />
+        <span class="hidden lg:inline text-[11px]">+ Write</span>
       </a>
+
+      <!-- Quick Command Search Bar Pill Trigger (Opens Modal on click or Ctrl+K) -->
+      <button 
+        type="button"
+        data-open-search
+        aria-label="Search articles"
+        class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#071120] border border-cyan-500/20 hover:border-cyan-400/60 text-slate-400 hover:text-slate-200 text-xs font-mono transition-all shadow-inner group"
+      >
+        <Search class="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform" />
+        <span class="hidden sm:inline text-[11px] text-slate-400">Search</span>
+        <kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded bg-slate-900 border border-slate-700/60 text-[10px] text-cyan-400 font-mono">
+          Ctrl K
+        </kbd>
+      </button>
+
       <a 
         href="/subscribe" 
-        class="px-5 py-2 rounded-xl bg-[#00D2EE] hover:bg-cyan-300 text-slate-950 font-bold text-xs shadow-[0_0_20px_rgba(0,210,238,0.45)] transition-all"
+        class="px-4 py-2 rounded-xl bg-[#00D2EE] hover:bg-cyan-300 text-slate-950 font-bold text-xs shadow-[0_0_20px_rgba(0,210,238,0.45)] transition-all"
       >
         Subscribe
       </a>
